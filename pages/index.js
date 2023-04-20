@@ -2,14 +2,43 @@ import React, { useEffect, useState } from 'react';
 import { API, graphqlOperation } from '@aws-amplify/api';
 import { messagesByChannelID, messagesByChannelId } from '../src/graphql/queries';
 
+import '@aws-amplify/pubsub';
+import { onCreateMessage } from '../src/graphql/subscriptions';
+
 const Home = () => {
+  const [messageBody, setMessageBody] = useState('');
+  const [messages, setMessages] = useState([]);
+
   // Placeholder function for handling changes to our chat bar
-  const handleChange = () => {};
+  const handleChange = (event) => {
+    setMessageBody(event.target.value);
+    
+  };
   
   // Placeholder function for handling the form submission
-  const handleSubmit = () => {};
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+  
+  //DELETE
+  const input = {
+    channelID: '1',
+    author: 'Dave',
+    body: messageBody.trim()
+    
+  };
 
-  const [messages, setMessages] = useState([]);
+  try {
+    setMessageBody('');
+    await API.graphql(graphqlOperation(createMessage, { input }))
+  } catch (error) {
+    console.warn(error);
+  }
+
+
+//DELETE ^
+}
+
 
 useEffect(() => {
   API
@@ -25,6 +54,20 @@ useEffect(() => {
       }
     });
 }, []);
+
+useEffect(() => {
+  const subscription = API
+    .graphql(graphqlOperation(onCreateMessage))
+    .subscribe({
+      next: (event) => {
+        setMessages([...messages, event.value.data.onCreateMessage]);
+      }
+    });
+  
+  return () => {
+    subscription.unsubscribe();
+  };
+}, [messages]);
   
   return (
     <div className="container">
@@ -44,7 +87,7 @@ useEffect(() => {
             name="messageBody"
             placeholder="Type your message here"
             onChange={handleChange}
-            value={''}
+            value={messageBody}
           />
         </form>
       </div>
