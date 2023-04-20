@@ -1,0 +1,12 @@
+{
+  "version": "1",
+  "cognitoConfig": {
+    "identityPoolName": "chatapp2_identitypool_6098dda7",
+    "allowUnauthenticatedIdentities": true,
+    "authSelections": "identityPoolOnly",
+    "resourceName": "chatapp2",
+    "sharedId": "6098dda7",
+    "serviceName": "Cognito",
+    "useDefault": "manual"
+  }
+}

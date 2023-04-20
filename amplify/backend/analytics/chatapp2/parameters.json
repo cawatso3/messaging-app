@@ -1,0 +1,22 @@
+{
+  "appName": "chatapp2",
+  "roleName": "pinpointLambdaRolef2eda342",
+  "cloudformationPolicyName": "cloudformationPolicyf2eda342",
+  "cloudWatchPolicyName": "cloudWatchPolicyf2eda342",
+  "pinpointPolicyName": "pinpointPolicyf2eda342",
+  "authPolicyName": "pinpoint_amplify_f2eda342",
+  "unauthPolicyName": "pinpoint_amplify_f2eda342",
+  "authRoleName": {
+    "Ref": "AuthRoleName"
+  },
+  "unauthRoleName": {
+    "Ref": "UnauthRoleName"
+  },
+  "authRoleArn": {
+    "Fn::GetAtt": [
+      "AuthRole",
+      "Arn"
+    ]
+  },
+  "pinpointInAppMessagingPolicyName": "pinpointInAppMessagingPolicyNamef2eda342"
+}

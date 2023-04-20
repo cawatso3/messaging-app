@@ -1,0 +1,38 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-chatapp2-dev-210536-authRole",
+      "UnauthRoleArn": "arn:aws:iam::102406607691:role/amplify-chatapp2-dev-210536-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::102406607691:role/amplify-chatapp2-dev-210536-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-chatapp2-dev-210536-deployment",
+      "UnauthRoleName": "amplify-chatapp2-dev-210536-unauthRole",
+      "StackName": "amplify-chatapp2-dev-210536",
+      "StackId": "arn:aws:cloudformation:us-east-1:102406607691:stack/amplify-chatapp2-dev-210536/fb95d3f0-ce96-11ed-bf26-0acd6d62595b",
+      "AmplifyAppId": "dc1gwdbm208c9"
+    },
+    "categories": {
+      "auth": {
+        "chatapp2": {}
+      },
+      "notifications": {
+        "Pinpoint": {
+          "Name": "chatapp2-dev",
+          "Id": "abf71af83a9b417d9190856f711614e6",
+          "Region": "us-east-1"
+        }
+      },
+      "analytics": {
+        "Pinpoint": {
+          "Name": "chatapp2-dev",
+          "Id": "abf71af83a9b417d9190856f711614e6",
+          "Region": "us-east-1"
+        },
+        "chatapp2": {}
+      },
+      "api": {
+        "chatapp2": {}
+      }
+    }
+  }
+}
